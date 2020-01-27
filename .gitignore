@@ -1,0 +1,11 @@
+*.exe
+*.dll
+*.pdb
+*.txt
+themes/
+fonts/
+custom/
+project.4coder
+4ed.sln
+.vs/
+clearfeld/private_variables.cpp
