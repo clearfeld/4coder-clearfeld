@@ -1,7 +1,7 @@
 //#include "hydra.cpp"
 
 #include "custom_commands/reopen_safely.cpp"
-//#include "custom_commands/other_panel_commands.cpp"
+#include "custom_commands/other_panel_commands.cpp"
 #include "custom_commands/rect_operations.cpp"
 //#include "custom_commands/align_regexp.cpp"
 
