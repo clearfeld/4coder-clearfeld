@@ -47,12 +47,14 @@ CUSTOM_DOC("Cuts the content between the mark and cursor as a rectangle.")
 
 		// NOTE: start_pos - 1 to capute the char under the mark/cursor
 		for (i64 j = start_pos - 1; j < end_pos; ++j) {
-			if (current_line.str[j] == '\0') {
-				a += "";
+			if (current_line.size != 0) {
+				if (current_line.str[j] == '\0') {
+					a += "";
+				}
+				else {
+					a += current_line.str[j];
+				}
 			}
-			else {
-				a += current_line.str[j];
-            }
 		}
 
 		a += "\n";
@@ -61,10 +63,12 @@ CUSTOM_DOC("Cuts the content between the mark and cursor as a rectangle.")
 	History_Group hg = history_group_begin(app, buffer_id);
 	for (i64 i = start_line; i < end_line + 1; ++i) {
 		String_Const_u8 current_line = push_buffer_line(app, scratch, buffer_id, i);
-		view_set_mark(app, view_id, seek_line_col(i, start_pos));
-		view_set_cursor(app, view_id, seek_line_col(i, end_pos));
-		delete_range(app);
-		delete_char(app);
+		if (current_line.size != 0) {
+			view_set_mark(app, view_id, seek_line_col(i, start_pos));
+			view_set_cursor(app, view_id, seek_line_col(i, end_pos));
+			delete_range(app);
+			delete_char(app);
+		}
 	}
 	history_group_end(hg);
 
@@ -110,11 +114,13 @@ CUSTOM_DOC("Copies the content between the mark and cursor as a rectangle.")
 
 		// NOTE: start_pos - 1 to capute the char under the mark/cursor
 		for (i64 j = start_pos - 1; j < end_pos; ++j) {
-			if (current_line.str[j] == '\0') {
-				a += "";
-			}
-			else {
-				a += current_line.str[j];
+			if (current_line.size != 0) {
+				if (current_line.str[j] == '\0') {
+					a += "";
+				}
+				else {
+					a += current_line.str[j];
+				}
 			}
 		}
 
