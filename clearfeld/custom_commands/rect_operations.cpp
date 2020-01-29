@@ -56,12 +56,17 @@ CUSTOM_DOC("Cuts the content between the mark and cursor as a rectangle.")
 		}
 
 		a += "\n";
-		
-		// TODO: IMPORTANT: figure out how to perform actions without having 
-		// each one go onto the undo stack
+	}
+
+	History_Group hg = history_group_begin(app, buffer_id);
+	for (i64 i = start_line; i < end_line + 1; ++i) {
+		String_Const_u8 current_line = push_buffer_line(app, scratch, buffer_id, i);
+		view_set_mark(app, view_id, seek_line_col(i, start_pos));
+		view_set_cursor(app, view_id, seek_line_col(i, end_pos));
 		delete_range(app);
 		delete_char(app);
 	}
+	history_group_end(hg);
 
 	clipboard_post(app, 0, SCu8((char*)a.c_str()));
 }
@@ -123,8 +128,10 @@ CUSTOM_COMMAND_SIG(paste_rect_repeating)
 CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle (repeats).")
 {
 	Scratch_Block scratch(app);
+	View_ID view_id = get_active_view(app, Access_ReadVisible);
+	Buffer_ID buffer_id = view_get_buffer(app, view_id, Access_ReadVisible);
+
 	String_Const_u8 clipboard_string = push_clipboard_index(app, scratch, 0, 0);
-	
 	std::vector<std::string> strings;
 	std::istringstream f((char *)clipboard_string.str);
 	std::string s;
@@ -132,8 +139,6 @@ CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle (repea
 		strings.push_back(s);
 	}
 
-	View_ID view_id = get_active_view(app, Access_ReadVisible);
-	
 	i64 cursor_pos = view_get_cursor_pos(app, view_id);
 	i64 mark_pos = view_get_mark_pos(app, view_id);
 
@@ -159,6 +164,7 @@ CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle (repea
 	size_t st = strings.size();
 	int j = 0;
 
+	History_Group hg = history_group_begin(app, buffer_id);
 	for (i64 i = start_line; i < end_line + 1; ++i) {
 		view_set_cursor(app, view_id, seek_line_col(i, cursor.col));
 		write_text(app, SCu8((char *)strings.at(j).c_str()));
@@ -167,22 +173,23 @@ CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle (repea
 			j = 0;
 		}
 	}
+	history_group_end(hg);
 }
 
 CUSTOM_COMMAND_SIG(paste_rect_naive)
 CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle.")
 {
 	Scratch_Block scratch(app);
-	String_Const_u8 clipboard_string = push_clipboard_index(app, scratch, 0, 0);
+	View_ID view_id = get_active_view(app, Access_ReadVisible);
+	Buffer_ID buffer_id = view_get_buffer(app, view_id, Access_ReadVisible);
 
+	String_Const_u8 clipboard_string = push_clipboard_index(app, scratch, 0, 0);
 	std::vector<std::string> strings;
 	std::istringstream f((char*)clipboard_string.str);
 	std::string s;
 	while (getline(f, s, '\n')) {
 		strings.push_back(s);
 	}
-
-	View_ID view_id = get_active_view(app, Access_ReadVisible);
 
 	i64 cursor_pos = view_get_cursor_pos(app, view_id);
 	i64 mark_pos = view_get_mark_pos(app, view_id);
@@ -209,6 +216,7 @@ CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle.")
 	size_t st = strings.size();
 	int j = 0;
 
+	History_Group hg = history_group_begin(app, buffer_id);
 	for (i64 i = start_line; i < end_line + 1; ++i) {
 		view_set_cursor(app, view_id, seek_line_col(i, cursor.col));
 		write_text(app, SCu8((char*)strings.at(j).c_str()));
@@ -217,4 +225,5 @@ CUSTOM_DOC("Pastes the content at the top of the clipboard as a rectangle.")
 			break;
 		}
 	}
+	history_group_end(hg);
 }
