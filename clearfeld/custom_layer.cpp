@@ -137,6 +137,9 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
         }break;
     }
 
+    // NOTE(allen): Fade ranges
+    paint_fade_ranges(app, text_layout_id, buffer, view_id);
+
     // NOTE(allen): put the actual text on the actual screen
     draw_text_layout_default(app, text_layout_id);
 
