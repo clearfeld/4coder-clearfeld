@@ -6,9 +6,10 @@ enum windmove_directions {
 };
 
 void
-windmove_to_panel(Application_Links* app, u8 direction)
+windmove_to_panel(Application_Links* app, u8 direction, b32 swap_on_move)
 {
     View_ID view_id = get_active_view(app, Access_Always);
+    Buffer_ID cur_buffer = view_get_buffer(app, view_id, Access_Always);
 
     Panel_ID original_panel = view_get_panel(app, view_id);
     Rect_f32 original_rect  = view_get_screen_rect(app, view_id);
@@ -118,29 +119,59 @@ windmove_to_panel(Application_Links* app, u8 direction)
 
         View_ID target_view = panel_get_view(app, current_panel, Access_Always);
         view_set_active(app, target_view);
+
+        if(swap_on_move) {
+            Buffer_ID target_buffer = view_get_buffer(app, target_view, Access_Always);
+            view_set_buffer(app, target_view, cur_buffer, Access_Always);
+            view_set_buffer(app, view_id, target_buffer, Access_Always);
+        }
     }
 }
 
 CUSTOM_COMMAND_SIG(windmove_panel_up)
-CUSTOM_DOC("Move up from the current active view.")
+CUSTOM_DOC("Move up from the active view.")
 {
-    windmove_to_panel(app, windmove_up);
+    windmove_to_panel(app, windmove_up, false);
 }
 
 CUSTOM_COMMAND_SIG(windmove_panel_down)
-CUSTOM_DOC("Move down from the current active view.")
+CUSTOM_DOC("Move down from the active view.")
 {
-    windmove_to_panel(app, windmove_down);
+    windmove_to_panel(app, windmove_down, false);
 }
 
 CUSTOM_COMMAND_SIG(windmove_panel_left)
-CUSTOM_DOC("Move left from the current active view.")
+CUSTOM_DOC("Move left from the active view.")
 {
-    windmove_to_panel(app, windmove_left);
+    windmove_to_panel(app, windmove_left, false);
 }
 
 CUSTOM_COMMAND_SIG(windmove_panel_right)
-CUSTOM_DOC("Move right from the current active view.")
+CUSTOM_DOC("Move right from the active view.")
 {
-    windmove_to_panel(app, windmove_right);
+    windmove_to_panel(app, windmove_right, false);
+}
+
+CUSTOM_COMMAND_SIG(windmove_panel_swap_up)
+CUSTOM_DOC("Swap buffer up from the active view.")
+{
+    windmove_to_panel(app, windmove_up, true);
+}
+
+CUSTOM_COMMAND_SIG(windmove_panel_swap_down)
+CUSTOM_DOC("Swap buffer down from the active view.")
+{
+    windmove_to_panel(app, windmove_down, true);
+}
+
+CUSTOM_COMMAND_SIG(windmove_panel_swap_left)
+CUSTOM_DOC("Swap buffer left from the active view.")
+{
+    windmove_to_panel(app, windmove_left, true);
+}
+
+CUSTOM_COMMAND_SIG(windmove_panel_swap_right)
+CUSTOM_DOC("Swap buffer right from the active view.")
+{
+    windmove_to_panel(app, windmove_right, true);
 }
