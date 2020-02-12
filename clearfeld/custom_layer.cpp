@@ -10,7 +10,8 @@
 
 #include "4coder_default_include.cpp"
 
-//#include "4coder_default_map.cpp"
+// NOTE(allen): Users can declare their own managed IDs here.
+
 #include "generated/managed_id_metadata.cpp"
 
 //~ packages under development
@@ -211,6 +212,7 @@ custom_render_caller(Application_Links *app, Frame_Info frame_info, View_ID view
     View_ID active_view = get_active_view(app, Access_Always);
     b32 is_active_view = (active_view == view_id);
 
+    // margin around active view remove bottom and top of it
     Rect_f32 region = draw_background_and_margin(app, view_id, is_active_view);
     Rect_f32 prev_clip = draw_set_clip(app, region);
 
@@ -348,9 +350,10 @@ custom_layer_init(Application_Links *app){
     // NOTE(allen): default hooks and command maps
     set_all_default_hooks(app);
     mapping_init(tctx, &framework_mapping);
-    setup_default_mapping(&framework_mapping, mapid_global, mapid_file, mapid_code);
+    //setup_default_mapping(&framework_mapping, mapid_global, mapid_file, mapid_code);
 
-    clearfeld_set_bindings(&framework_mapping);
+    clearfeld_set_bindings(&framework_mapping, mapid_global, mapid_file, mapid_code);
+
     wilmersdorf_doom_theme(app);
 
     // start_docker_lang_server();
