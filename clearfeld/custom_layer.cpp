@@ -30,6 +30,7 @@
 //#include "../packages/fleury/4coder_fleury_smooth_cursor.cpp"
 #include "../packages/divider_comments/divider_comments.cpp"
 #include "../packages/paint_functions/paint_functions.cpp"
+#include "../packages/smooth_cursor/smooth_cursor.cpp"
 
 //~ core
 #include "private_variables.cpp"
@@ -134,9 +135,13 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
     switch (fcoder_mode){
         case FCoderMode_Original:
         {
-            draw_original_4coder_style_cursor_mark_highlight(app, view_id, is_active_view, buffer, text_layout_id, cursor_roundness, mark_thickness);
-            //Fleury4RenderCursor(app, view_id, is_active_view, buffer, text_layout_id, cursor_roundness, mark_thickness, frame_info);
+            if(smooth_cursor_mode) {
+                Fleury4RenderCursor(app, view_id, is_active_view, buffer, text_layout_id, cursor_roundness, mark_thickness, frame_info);
+            } else {
+                draw_original_4coder_style_cursor_mark_highlight(app, view_id, is_active_view, buffer, text_layout_id, cursor_roundness, mark_thickness);
+            }
         }break;
+
         case FCoderMode_NotepadLike:
         {
             draw_notepad_style_cursor_highlight(app, view_id, buffer, text_layout_id, cursor_roundness);
