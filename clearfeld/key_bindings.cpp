@@ -5,6 +5,7 @@
 #include "custom_commands/rect_operations.cpp"
 //#include "custom_commands/align_regexp.cpp"
 #include "custom_commands/windmove.cpp"
+#include "custom_commands/zap_to_char.cpp"
 
 #if OS_WINDOWS
 # define CLEARFELD_KEYCODE_RIGHT_META KeyCode_Alt
@@ -168,7 +169,7 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
 
         // misc
         Bind(toggle_fullscreen, KeyCode_F11);
-        Bind(goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
+        Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
 
         // hydra chords
         // Bind(hydra_text_sizing, KeyCode_9, KeyCode_Menu);
@@ -213,7 +214,7 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         //Bind(snipe_backward_whitespace_or_token_boundary, KeyCode_Backspace, CLEARFELD_KEYCODE_RIGHT_META);
         //Bind(snipe_forward_whitespace_or_token_boundary,  KeyCode_Delete, CLEARFELD_KEYCODE_RIGHT_META);
 
-        Bind(goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
+        Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(set_mark, KeyCode_Space, KeyCode_Control);
         // Bind(cursor_mark_swap, KeyCode_M, KeyCode_Control);
 
@@ -281,7 +282,6 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(delete_line, KeyCode_L, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(duplicate_line, KeyCode_L, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(toggle_fullscreen, KeyCode_F11);
-        Bind(goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
     }
 
     //~ Code
@@ -355,6 +355,6 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(delete_line, KeyCode_L, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(duplicate_line, KeyCode_L, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(toggle_fullscreen, KeyCode_F11);
-        Bind(goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
+        Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
     }
 }

@@ -31,6 +31,7 @@
 #include "../packages/divider_comments/divider_comments.cpp"
 #include "../packages/paint_functions/paint_functions.cpp"
 #include "../packages/smooth_cursor/smooth_cursor.cpp"
+#include "../packages/goto_line_preview/goto_line_preview.cpp"
 
 //~ core
 #include "private_variables.cpp"
