@@ -42,6 +42,11 @@
 // core - languages
 //
 
+//~ appearance
+#include "appearance/margins.cpp"
+
+//~ end include section
+
 function void
 custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
                       Buffer_ID buffer, Text_Layout_ID text_layout_id,
@@ -212,8 +217,8 @@ custom_render_caller(Application_Links *app, Frame_Info frame_info, View_ID view
     View_ID active_view = get_active_view(app, Access_Always);
     b32 is_active_view = (active_view == view_id);
 
-    // margin around active view remove bottom and top of it
-    Rect_f32 region = draw_background_and_margin(app, view_id, is_active_view);
+    Rect_f32 region = cl_draw_background_and_margin(app, view_id, is_active_view);
+    //Rect_f32 region = draw_background_and_margin(app, view_id, is_active_view);
     Rect_f32 prev_clip = draw_set_clip(app, region);
 
     Buffer_ID buffer = view_get_buffer(app, view_id, Access_Always);
