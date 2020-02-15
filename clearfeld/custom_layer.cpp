@@ -22,8 +22,6 @@
 //#include "../packages/git/git_full.cpp"
 
 //~ package seperate repo
-#include "../packages/solarized_themes/solarized_themes.cpp"
-#include "../packages/wilmersdorf-doom-theme/wilmersdorf_doom_theme.cpp"
 
 //~ package integrated / integrating
 // TODO: add toggles
@@ -47,6 +45,15 @@
 //~ appearance
 #include "appearance/margins.cpp"
 
+// themes
+global u32 TEMP_HIGHLIGHT_COLOR = 0xFFFF0000;
+global u32 BROKEN_HIGHLIGHT_COLOR = 0xFFFF0000;
+global u32 HACK_HIGHLIGHT_COLOR = 0xFFFFA500;
+global u32 FIXME_HIGHLIGHT_COLOR = 0xFFD4AF37;
+global u32 IMPORTANT_HIGHLIGHT_COLOR = 0xFFFFFF00;
+#include "../packages/solarized_themes/solarized_themes.cpp"
+#include "../packages/wilmersdorf-doom-theme/wilmersdorf_doom_theme.cpp"
+
 //~ end include section
 
 function void
@@ -69,6 +76,11 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
             Comment_Highlight_Pair pairs[] = {
                 {string_u8_litexpr("NOTE"), finalize_color(defcolor_comment_pop, 0)},
                 {string_u8_litexpr("TODO"), finalize_color(defcolor_comment_pop, 1)},
+                {string_u8_litexpr("TEMP"), TEMP_HIGHLIGHT_COLOR},
+                {string_u8_litexpr("BROKEN"), BROKEN_HIGHLIGHT_COLOR},
+                {string_u8_litexpr("HACK"), HACK_HIGHLIGHT_COLOR},
+                {string_u8_litexpr("FIXME"), FIXME_HIGHLIGHT_COLOR},
+                {string_u8_litexpr("IMPORTANT"), IMPORTANT_HIGHLIGHT_COLOR},
             };
             draw_comment_highlights(app, buffer, text_layout_id,
                                     &token_array, pairs, ArrayCount(pairs));
