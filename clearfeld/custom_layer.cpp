@@ -20,6 +20,7 @@
 //#include "../packages/echo_area/echo_area.cpp"
 //#include "../packages/emmet/emmet.cpp"
 //#include "../packages/git/git_full.cpp"
+#include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
 
 //~ package seperate repo
 
@@ -306,8 +307,12 @@ custom_render_caller(Application_Links *app, Frame_Info frame_info, View_ID view
     Text_Layout_ID text_layout_id = text_layout_create(app, buffer, region, buffer_point);
 
     // NOTE(allen): draw line numbers
-    if (global_config.show_line_number_margins){
-        draw_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
+    if(global_config.show_line_number_margins) {
+        if(use_relative_line_number_mode) {
+            draw_relative_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
+        } else {
+            draw_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
+        }
     }
 
     // NOTE(allen): draw the buffer
