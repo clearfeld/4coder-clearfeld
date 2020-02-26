@@ -7,6 +7,9 @@
 #include "custom_commands/windmove.cpp"
 #include "custom_commands/zap_to_char.cpp"
 
+//#include "utils.cpp"
+
+
 #if OS_WINDOWS
 # define CLEARFELD_KEYCODE_RIGHT_META KeyCode_Alt
 #elif OS_MAC
@@ -98,6 +101,9 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(windmove_panel_swap_down, KeyCode_Down, KeyCode_Control, KeyCode_Shift);
         Bind(windmove_panel_swap_left, KeyCode_Left, KeyCode_Control, KeyCode_Shift);
         Bind(windmove_panel_swap_right, KeyCode_Right, KeyCode_Control, KeyCode_Shift);
+
+        Bind(seek_beginning_of_line, KeyCode_Left, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
+        Bind(seek_end_of_line, KeyCode_Right, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
 
         Bind(seek_beginning_of_line, KeyCode_Home);
         Bind(seek_end_of_line, KeyCode_End);
@@ -245,6 +251,9 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(move_line_up, KeyCode_Up, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(move_line_down, KeyCode_Down, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
 
+        Bind(seek_beginning_of_line, KeyCode_Left, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
+        Bind(seek_end_of_line, KeyCode_Right, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
+
         Bind(seek_beginning_of_line, KeyCode_Home);
         Bind(seek_end_of_line, KeyCode_End);
 
@@ -323,6 +332,8 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(move_left_alpha_numeric_or_camel_boundary, KeyCode_Left, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(move_line_up, KeyCode_Up, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(move_line_down, KeyCode_Down, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
+        Bind(seek_beginning_of_line, KeyCode_Left, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
+        Bind(seek_end_of_line, KeyCode_Right, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(seek_beginning_of_line, KeyCode_Home);
         Bind(seek_end_of_line, KeyCode_End);
         Bind(page_up, KeyCode_PageUp);
