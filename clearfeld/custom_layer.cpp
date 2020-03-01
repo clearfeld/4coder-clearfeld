@@ -20,17 +20,16 @@
 //#include "../packages/echo_area/echo_area.cpp"
 //#include "../packages/emmet/emmet.cpp"
 //#include "../packages/git/git_full.cpp"
-#include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
+//#include "../packages/dashboard/dashboard.cpp"
 
 //~ package seperate repo
 
 //~ package integrated / integrating
-// TODO: add toggles
-//#include "../packages/fleury/4coder_fleury_smooth_cursor.cpp"
 #include "../packages/divider_comments/divider_comments.cpp"
 #include "../packages/paint_functions/paint_functions.cpp"
 #include "../packages/smooth_cursor/smooth_cursor.cpp"
 #include "../packages/goto_line_preview/goto_line_preview.cpp"
+#include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
 
 //~ core
 #include "private_variables.cpp"
@@ -142,7 +141,7 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
 
     // NOTE(allen): Cursor shape
     Face_Metrics metrics = get_face_metrics(app, face_id);
-    f32 cursor_roundness = (metrics.normal_advance*0.5f)*0.9f;
+    f32 cursor_roundness = 0.0f; //(metrics.normal_advance*0.5f)*0.9f;
     f32 mark_thickness = 2.f;
 
     // NOTE(allen): Cursor
@@ -263,7 +262,7 @@ custom_render_caller(Application_Links *app, Frame_Info frame_info, View_ID view
     Buffer_Scroll scroll = view_get_buffer_scroll(app, view_id);
 
     Buffer_Point_Delta_Result delta = delta_apply(app, view_id,
-                                                  frame_info.animation_dt, scroll);
+                                                  frame_info.animation_dt * 2.0f, scroll);
     if (!block_match_struct(&scroll.position, &delta.point)){
         block_copy_struct(&scroll.position, &delta.point);
         view_set_buffer_scroll(app, view_id, scroll, SetBufferScroll_NoCursorChange);

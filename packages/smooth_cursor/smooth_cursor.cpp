@@ -9,7 +9,7 @@ static int global_cursor_count = 1;
 static i64 global_cursor_positions[16] = {0};
 static i64 global_mark_positions[16] = {0};
 
-static b32 smooth_cursor_mode = true;
+static b32 smooth_cursor_mode = false;
 
 static void
 Fleury4RenderCursor(Application_Links *app, View_ID view_id, b32 is_active_view,
