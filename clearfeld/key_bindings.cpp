@@ -6,6 +6,7 @@
 //#include "custom_commands/align_regexp.cpp"
 #include "custom_commands/windmove.cpp"
 #include "custom_commands/zap_to_char.cpp"
+#include "custom_commands/mouse_left_click_bottom_bar_offset.cpp"
 
 //#include "utils.cpp"
 
@@ -237,10 +238,10 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(if_read_only_goto_position_same_panel, KeyCode_Return, KeyCode_Shift);
 
         BindTextInput(write_text_input);
-        BindMouse(click_set_cursor_and_mark, MouseCode_Left);
-        BindMouseRelease(click_set_cursor, MouseCode_Left);
-        BindCore(click_set_cursor_and_mark, CoreCode_ClickActivateView);
-        BindMouseMove(click_set_cursor_if_lbutton);
+        BindMouse(clearfeld_click_set_cursor_and_mark, MouseCode_Left);
+        BindMouseRelease(clearfeld_click_set_cursor, MouseCode_Left);
+        BindCore(clearfeld_click_set_cursor_and_mark, CoreCode_ClickActivateView);
+        BindMouseMove(clearfeld_click_set_cursor_if_lbutton);
 
         //Bind(open_default_keybindings_cheatsheet, KeyCode_F2);
         Bind(move_up_to_blank_line_skip_whitespace, KeyCode_Up, CLEARFELD_KEYCODE_RIGHT_META);
