@@ -21,6 +21,23 @@
 # error No support for this platform.
 #endif
 
+CUSTOM_COMMAND_SIG(clearfeld_startup)
+CUSTOM_DOC("Default command for responding to a startup event")
+{
+    ProfileScope(app, "default startup");
+    User_Input input = get_current_input(app);
+    if (match_core_code(&input, CoreCode_Startup)){
+        String_Const_u8_Array file_names = input.event.core.file_names;
+        load_themes_default_folder(app);
+        default_4coder_initialize(app, file_names);
+        default_4coder_side_by_side_panels(app, file_names);
+        if (global_config.automatically_load_project){
+            load_project(app);
+        }
+
+        dashboard_open(app);
+    }
+}
 
 function void
 clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id)
@@ -31,7 +48,8 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
     SelectMapping(mapping);
     SelectMap(global_id);
     {
-        BindCore(default_startup, CoreCode_Startup);
+        //BindCore(default_startup, CoreCode_Startup);
+        BindCore(clearfeld_startup, CoreCode_Startup);
         BindCore(default_try_exit, CoreCode_TryExit);
 
         //( (kbd "M-j") #'imenu)

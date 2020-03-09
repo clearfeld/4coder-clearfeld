@@ -20,7 +20,8 @@
 //#include "../packages/echo_area/echo_area.cpp"
 //#include "../packages/emmet/emmet.cpp"
 //#include "../packages/git/git_full.cpp"
-//#include "../packages/dashboard/dashboard.cpp"
+#include "../packages/dashboard/dashboard.cpp"
+//#include "../packages/multiple_cursors/multiple_cursors.cpp"
 
 //~ package seperate repo
 
@@ -169,7 +170,14 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
 
     draw_set_clip(app, prev_clip);
 
+    // if(draw_git_mode_asc_screen) {
+    //     render_git_screen(app, face_id, rect, buffer, view_id);
+    // }
     //draw_git_gutters(app, view_id, face_id, buffer);
+
+    if(buffer == dashboard_buffer_id) {
+        draw_dashboard_extras(app, text_layout_id, face_id, rect);
+    }
 }
 
 function void
