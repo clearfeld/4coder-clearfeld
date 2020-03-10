@@ -1,7 +1,7 @@
 ## Installation
 
 ### Prerequisites
-4coder Version: 4.1.3+
+4coder Version: 4.1.4+
 
 Supported Platforms: Windows, Mac
 
