@@ -1,3 +1,9 @@
 [submodule "packages\\dashboard"]
 	path = packages\\dashboard
 	url = https://github.com/clearfeld/4coder-package-dashboard
+[submodule "packages/wilmersdorf_doom_theme"]
+	path = packages/wilmersdorf_doom_theme
+	url = https://github.com/clearfeld/4coder-package-wilmersdorf-theme
+[submodule "packages/solarized_themes"]
+	path = packages/solarized_themes
+	url = https://github.com/clearfeld/4coder-package-solarized-themes
