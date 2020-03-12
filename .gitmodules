@@ -1,5 +1,5 @@
-[submodule "packages\\dashboard"]
-	path = packages\\dashboard
+[submodule "packages/dashboard"]
+	path = packages/dashboard
 	url = https://github.com/clearfeld/4coder-package-dashboard
 [submodule "packages/wilmersdorf_doom_theme"]
 	path = packages/wilmersdorf_doom_theme
