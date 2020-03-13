@@ -176,7 +176,7 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         // TODO
         //Bind(delete_alpha_numeric_boundary_forward, );
 
-        Bind(set_mark, KeyCode_Space, KeyCode_Control);
+        Bind(clearfeld_set_mark, KeyCode_Space, KeyCode_Control);
         Bind(cursor_mark_swap, KeyCode_Space, KeyCode_Control, KeyCode_Shift);
 
         Bind(query_replace, KeyCode_O, CLEARFELD_KEYCODE_RIGHT_META);
@@ -195,6 +195,7 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         // misc
         Bind(toggle_fullscreen, KeyCode_F11);
         Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
+        Bind(emacs_style_region_highlight_quit, KeyCode_G, KeyCode_Control);
 
         // hydra chords
         // Bind(hydra_text_sizing, KeyCode_9, KeyCode_Menu);
@@ -240,7 +241,8 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         //Bind(snipe_forward_whitespace_or_token_boundary,  KeyCode_Delete, CLEARFELD_KEYCODE_RIGHT_META);
 
         Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
-        Bind(set_mark, KeyCode_Space, KeyCode_Control);
+        Bind(emacs_style_region_highlight_quit, KeyCode_G, KeyCode_Control);
+        Bind(clearfeld_set_mark, KeyCode_Space, KeyCode_Control);
         // Bind(cursor_mark_swap, KeyCode_M, KeyCode_Control);
 
         // Bind(center_view,                 KeyCode_E, KeyCode_Control);
@@ -299,8 +301,6 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(auto_indent_range, KeyCode_Tab, KeyCode_Control);
         Bind(backspace_alpha_numeric_boundary, KeyCode_Backspace, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(delete_alpha_numeric_boundary, KeyCode_Delete, CLEARFELD_KEYCODE_RIGHT_META);
-        Bind(set_mark, KeyCode_Space, KeyCode_Control);
-        Bind(cursor_mark_swap, KeyCode_Space, KeyCode_Control, KeyCode_Shift);
         Bind(query_replace, KeyCode_O, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(replace_in_range, KeyCode_O, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(copy, KeyCode_Q, KeyCode_Control);
@@ -374,7 +374,7 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(auto_indent_range, KeyCode_Tab, KeyCode_Control);
         Bind(backspace_alpha_numeric_boundary, KeyCode_Backspace, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(delete_alpha_numeric_boundary, KeyCode_Delete, CLEARFELD_KEYCODE_RIGHT_META);
-        Bind(set_mark, KeyCode_Space, KeyCode_Control);
+        Bind(clearfeld_set_mark, KeyCode_Space, KeyCode_Control);
         Bind(cursor_mark_swap, KeyCode_Space, KeyCode_Control, KeyCode_Shift);
         Bind(query_replace, KeyCode_O, CLEARFELD_KEYCODE_RIGHT_META);
         Bind(replace_in_range, KeyCode_O, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
@@ -386,5 +386,6 @@ clearfeld_set_bindings(Mapping *mapping, i64 global_id, i64 file_id, i64 code_id
         Bind(duplicate_line, KeyCode_L, CLEARFELD_KEYCODE_RIGHT_META, KeyCode_Shift);
         Bind(toggle_fullscreen, KeyCode_F11);
         Bind(st_goto_line, KeyCode_G, CLEARFELD_KEYCODE_RIGHT_META);
+        Bind(emacs_style_region_highlight_quit, KeyCode_G, KeyCode_Control);
     }
 }

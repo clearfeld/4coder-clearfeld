@@ -31,6 +31,7 @@
 #include "../packages/smooth_cursor/smooth_cursor.cpp"
 #include "../packages/goto_line_preview/goto_line_preview.cpp"
 #include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
+#include "../packages/highlight_region/highlight_region.cpp"
 
 //~ core
 #include "private_variables.cpp"
@@ -53,13 +54,13 @@ global u32 HACK_HIGHLIGHT_COLOR = 0xFFFFA500;
 global u32 FIXME_HIGHLIGHT_COLOR = 0xFFD4AF37;
 global u32 IMPORTANT_HIGHLIGHT_COLOR = 0xFFFFFF00;
 #include "../packages/solarized_themes/solarized_themes.cpp"
-#include "../packages/wilmersdorf-doom-theme/wilmersdorf_doom_theme.cpp"
+#include "../packages/wilmersdorf_doom_theme/wilmersdorf_doom_theme.cpp"
 
 //~ end include section
 
 function void
 custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
-                      Buffer_ID buffer, Text_Layout_ID text_layout_id,
+                     Buffer_ID buffer, Text_Layout_ID text_layout_id,
                      Rect_f32 rect, Frame_Info frame_info){
     ProfileScope(app, "render buffer");
 
@@ -178,6 +179,10 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
     if(buffer == dashboard_buffer_id) {
         draw_dashboard_extras(app, text_layout_id, face_id, rect);
     }
+
+    if(highlight_region_active) {
+        clearfeld_draw_highlight_region(app, view_id, text_layout_id, rect);
+    }
 }
 
 function void
@@ -194,7 +199,7 @@ custom_draw_file_bar(Application_Links *app, View_ID view_id, Buffer_ID buffer, 
 
     Fancy_Line list = {};
     String_Const_u8 unique_name = push_buffer_unique_name(app, scratch, buffer);
-    push_fancy_string(scratch, &list, fcolor_id(defcolor_list_item_hover), unique_name);
+    push_fancy_string(scratch, &list, fcolor_id(defcolor_margin_active), unique_name);
     push_fancy_stringf(scratch, &list, base_color, " - Row: %3.lld Col: %3.lld -", cursor.line, cursor.col);
 
     Managed_Scope scope = buffer_get_managed_scope(app, buffer);
