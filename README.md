@@ -1,9 +1,13 @@
-## Installation
+## Installation (WIP)
+
+```
+git clone --recurse-submodules https://github.com/clearfeld/4coder-clearfeld.git
+```
 
 ### Prerequisites
 4coder Version: 4.1.4+
 
-Supported Platforms: Windows, Mac
+Supported Platforms: Windows, Mac, Linux
 
 ## Features
 * [Custom Dashboard](https://github.com/clearfeld/4coder-package-dashboard)
@@ -11,5 +15,6 @@ Supported Platforms: Windows, Mac
 * [Window and Buffer Movement](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/windmove.cpp)
 * [Rectangle Editing](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/rect_operations.cpp)
 * [Filebar at bottom mouse offset](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/mouse_left_click_bottom_bar_offset.cpp)
+* [Highlight active region (accurate)](https://github.com/clearfeld/4coder-clearfeld/blob/master/packages/highlight_region/highlight_region.cpp)
 
 ## Todo List
