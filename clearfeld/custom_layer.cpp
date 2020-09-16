@@ -15,6 +15,7 @@
 //~ package integrated / integrating
 #include "../packages/scope_highlight/scope_highlight.cpp"
 #include "../packages/paint_functions/paint_functions.cpp"
+#include "../packages/primitive_highlight/primitive_highlight.cpp"
 #include "../packages/avy/avy.cpp"
 
 // NOTE(allen): Users can declare their own managed IDs here.
@@ -88,7 +89,8 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
     // NOTE(allen): Token colorizing
     Token_Array token_array = get_token_array_from_buffer(app, buffer);
     if (token_array.tokens != 0){
-        draw_cpp_token_colors(app, text_layout_id, &token_array);
+        //draw_cpp_token_colors(app, text_layout_id, &token_array);
+        primitive_highlight_draw_cpp_token_colors(app, text_layout_id, &token_array, buffer);
 
         // NOTE(allen): Scan for TODOs and NOTEs
         if (global_config.use_comment_keyword){
@@ -145,7 +147,7 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
 
     // Package: paint_functions
     // NOTE(Skytrias): word highlight before braces ()
-    st_paint_functions(app, buffer, text_layout_id);
+    //st_paint_functions(app, buffer, text_layout_id);
 
     // NOTE(allen): Line highlight
     if (global_config.highlight_line_at_cursor && is_active_view){

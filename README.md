@@ -15,15 +15,24 @@ Supported Platforms: Windows, Mac, Linux
 * [Rectangle Editing](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/rect_operations.cpp)
 * [Filebar at bottom and mouse offset](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/mouse_left_click_bottom_bar_offset.cpp)
 * [Highlight active region (accurate)](https://github.com/clearfeld/4coder-clearfeld/blob/master/packages/highlight_region/highlight_region.cpp)
+* [primitive highlight (NOTE: only works with loaded project)](#)
 
 ## In Progress
 * avy
+* ace-window
+* naive non intelligent token colouring (emacs styled)
 
 ## Todo List
 Needs to be redone for 4.1.6
 * [Relative Line Number Mode](https://github.com/clearfeld/4coder-clearfeld/commit/1f7648f33c4db675c5d424adcdd7fac798d9e766)
 * highlight-symbol in curren view range
 * eyebrowse mode
-*
 
 ## Themes
+* wilmersdorf doom
+
+## Themes TODO (migrate from old method to theme file)
+* solarized dark
+* solarized light
+* visual studio dark
+* visual studio light
