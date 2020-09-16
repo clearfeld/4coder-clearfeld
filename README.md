@@ -16,9 +16,14 @@ Supported Platforms: Windows, Mac, Linux
 * [Filebar at bottom and mouse offset](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/mouse_left_click_bottom_bar_offset.cpp)
 * [Highlight active region (accurate)](https://github.com/clearfeld/4coder-clearfeld/blob/master/packages/highlight_region/highlight_region.cpp)
 
+## In Progress
+* avy
+
 ## Todo List
 Needs to be redone for 4.1.6
 * [Relative Line Number Mode](https://github.com/clearfeld/4coder-clearfeld/commit/1f7648f33c4db675c5d424adcdd7fac798d9e766)
 * highlight-symbol in curren view range
 * eyebrowse mode
-* add avy
+*
+
+## Themes
