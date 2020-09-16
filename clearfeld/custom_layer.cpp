@@ -15,6 +15,7 @@
 //~ package integrated / integrating
 #include "../packages/scope_highlight/scope_highlight.cpp"
 #include "../packages/paint_functions/paint_functions.cpp"
+#include "../packages/avy/avy.cpp"
 
 // NOTE(allen): Users can declare their own managed IDs here.
 #include "../custom/generated/managed_id_metadata.cpp"
@@ -207,6 +208,13 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
     draw_text_layout_default(app, text_layout_id);
 
     draw_set_clip(app, prev_clip);
+
+      //~ @note :avy_search
+    {
+        ARGB_Color argb_background = 0xFFFFFF00;
+        ARGB_Color argb_foreground = 0xFF000000;
+        avy_render(app, view_id, buffer, text_layout_id, face_id, prev_clip, cursor_roundness, argb_background, argb_foreground);
+    }
 
     // if(draw_git_mode_asc_screen) {
     //     render_git_screen(app, face_id, rect, buffer, view_id);
