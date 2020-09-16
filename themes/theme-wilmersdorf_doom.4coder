@@ -50,3 +50,8 @@ scope_highlight_block_cycle = { 0x3ff048be, 0x3ff07a48, 0x3fbef048, 0x3f48f07a, 
 
 
 internal_package__paint_functions = 0xFF7EBEBD;
+
+primitive_highlight_type = 0xFFB0A2E7;
+primitive_highlight_function = 0xFF63BEBD;
+primitive_highlight_macro = 0xFF63BEBD;
+primitive_highlight_4coder_command = 0xFF63BEBD;

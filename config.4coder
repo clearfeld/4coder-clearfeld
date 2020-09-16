@@ -40,7 +40,7 @@ mark_thickness = 2;
 lister_roundness = 20;
 
 // Code Wrapping
-treat_as_code = ".cpp.c.hpp.h.cc.cs.java.rs.glsl.m.mm.go.js.ts.tsx.jsx.vue";
+treat_as_code = ".cpp.c.hpp.h.cc.cs.java.rs.glsl.m.mm.go.js.ts.tsx.jsx.vue.odin";
 enable_virtual_whitespace = true;
 virtual_whitespace_regular_indent = 4;
 enable_code_wrapping = true;
