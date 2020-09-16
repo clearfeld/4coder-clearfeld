@@ -47,3 +47,6 @@ defcolor_line_numbers_text = 0xFF6E7899;
 
 scope_highlight_line_cycle = { 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899 };
 scope_highlight_block_cycle = { 0x3ff048be, 0x3ff07a48, 0x3fbef048, 0x3f48f07a, 0x3f48bef0, 0x3f7a48f0 };
+
+
+internal_package__paint_functions = 0xFF7EBEBD;
