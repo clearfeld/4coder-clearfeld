@@ -14,6 +14,7 @@ Supported Platforms: Windows, Mac*, Linux
 * [Rectangle Editing](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/rect_operations.cpp)
 * [Filebar at bottom and mouse offset](https://github.com/clearfeld/4coder-clearfeld/blob/master/clearfeld/custom_commands/mouse_left_click_bottom_bar_offset.cpp)
 * [Highlight active region (accurate)](https://github.com/clearfeld/4coder-clearfeld/blob/master/packages/highlight_region/highlight_region.cpp)
+* [Relative Line Number Mode](https://github.com/clearfeld/4coder-clearfeld/commit/1f7648f33c4db675c5d424adcdd7fac798d9e766)
 * [primitive highlight (NOTE: only works with loaded project)](#)
 
 ## In Progress
@@ -32,9 +33,6 @@ Supported Platforms: Windows, Mac*, Linux
 * highlight-symbol in curren view range
 * eyebrowse mode
 * terminal
-
-Needs to be redone for 4.1.6
-* [Relative Line Number Mode](https://github.com/clearfeld/4coder-clearfeld/commit/1f7648f33c4db675c5d424adcdd7fac798d9e766)
 
 ## Themes
 * wilmersdorf doom

@@ -30,7 +30,7 @@
 //#include "../packages/multiple_cursors/multiple_cursors.cpp"
 
 // TODO: REDO: 4.1.6 changed the way line margins are drawn from 4.1.4
-//#include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
+#include "../packages/relative_line_number_mode/relative_line_number_mode.cpp"
 
 //~ package seperate repo
 #include "../packages/dashboard/dashboard.cpp"
@@ -371,11 +371,11 @@ custom_render_caller(Application_Links *app, Frame_Info frame_info, View_ID view
 
     // NOTE(allen): draw line numbers
     if(global_config.show_line_number_margins) {
-        //if(use_relative_line_number_mode) {
-        //draw_relative_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
-        //} else {
-        draw_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
-        //}
+        if(use_relative_line_number_mode) {
+            draw_relative_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
+        } else {
+            draw_line_number_margin(app, view_id, buffer, face_id, text_layout_id, line_number_rect);
+        }
     }
 
     // NOTE(allen): draw the buffer
