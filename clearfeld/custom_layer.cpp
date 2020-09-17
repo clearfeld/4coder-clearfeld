@@ -58,14 +58,12 @@
 //~ appearance
 #include "appearance/margins.cpp"
 
-// themes
+// TODO: convert these to custom ids
 global u32 TEMP_HIGHLIGHT_COLOR = 0xFFFF0000;
 global u32 BROKEN_HIGHLIGHT_COLOR = 0xFFFF0000;
 global u32 HACK_HIGHLIGHT_COLOR = 0xFFFFA500;
 global u32 FIXME_HIGHLIGHT_COLOR = 0xFFD4AF37;
 global u32 IMPORTANT_HIGHLIGHT_COLOR = 0xFFFFFF00;
-#include "../packages/solarized_themes/solarized_themes.cpp"
-#include "../packages/wilmersdorf_doom_theme/wilmersdorf_doom_theme.cpp"
 
 //~ end include section
 
@@ -587,8 +585,6 @@ custom_layer_init(Application_Links *app){
     //setup_default_mapping(&framework_mapping, mapid_global, mapid_file, mapid_code);
 
     clearfeld_set_bindings(&framework_mapping, mapid_global, mapid_file, mapid_code);
-
-    //wilmersdorf_doom_theme(app);
 
     // start_docker_lang_server();
 

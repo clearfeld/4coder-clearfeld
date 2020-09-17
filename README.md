@@ -36,10 +36,10 @@ Supported Platforms: Windows, Mac*, Linux
 
 ## Themes
 * wilmersdorf doom
-
-## Themes TODO (migrate from old method to theme file)
 * solarized dark
 * solarized light
+
+## Themes TODO (migrate from old method to theme file)
 * visual studio dark
 * visual studio light
 
