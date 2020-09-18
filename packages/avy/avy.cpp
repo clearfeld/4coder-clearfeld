@@ -7,6 +7,9 @@
 // @note defer
 //
 
+CUSTOM_ID(colors, internal_package_avy_background);
+CUSTOM_ID(colors, internal_package_avy_text);
+
 #define CONCAT_INTERNAL(x,y) x ## y
 #define CONCAT(x,y) CONCAT_INTERNAL(x,y)
 
@@ -729,8 +732,8 @@ avy_render(Application_Links *app, View_ID view_id, Buffer_ID buffer_id, Text_La
 
 function void
 avy_render(Application_Links *app, View_ID view_id, Text_Layout_ID text_layout_id, Rect_f32 view_region) {
-    ARGB_Color argb_background = 0xFFFFFF00;
-    ARGB_Color argb_foreground = 0xFF000000;
+    ARGB_Color argb_background = fcolor_resolve(fcolor_id(internal_package_avy_background));
+    ARGB_Color argb_foreground = fcolor_resolve(fcolor_id(internal_package_avy_text));
 
     Buffer_ID buffer_id = view_get_buffer(app, view_id, Access_Always);
     Face_ID face_id = get_face_id(app, buffer_id);

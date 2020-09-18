@@ -211,8 +211,8 @@ custom_render_buffer(Application_Links *app, View_ID view_id, Face_ID face_id,
 
       //~ @note :avy_search
     {
-        ARGB_Color argb_background = 0xFFFFFF00;
-        ARGB_Color argb_foreground = 0xFF000000;
+        ARGB_Color argb_background = fcolor_resolve(fcolor_id(internal_package_avy_background));
+        ARGB_Color argb_foreground = fcolor_resolve(fcolor_id(internal_package_avy_text));
         avy_render(app, view_id, buffer, text_layout_id, face_id, prev_clip, cursor_roundness, argb_background, argb_foreground);
     }
 

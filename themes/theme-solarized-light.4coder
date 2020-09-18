@@ -88,3 +88,7 @@ primitive_highlight_type = 0xFF268BD2;
 primitive_highlight_function = 0xFFB58900;
 primitive_highlight_macro = 0xFFB58900;
 primitive_highlight_4coder_command = 0xFFFCFCFC;
+
+// avy
+internal_package_avy_background = 0xFF268BD2;
+internal_package_avy_text       = 0xFF00212B;

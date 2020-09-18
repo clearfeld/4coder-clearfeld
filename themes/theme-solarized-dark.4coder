@@ -38,8 +38,8 @@ defcolor_int_constant          = 0xFFD33682;
 defcolor_float_constant        = 0xFFD33682;
 defcolor_bool_constant         = 0xFFD33682;
 
-defcolor_preproc               = 0xFF268BD2;
-defcolor_include               = 0xFF268BD2;
+defcolor_preproc               = 0xFFB94B16;
+defcolor_include               = 0xFF2AA198;
 
 // Line numbers fg and bg
 defcolor_line_numbers_back     = 0xFF002B36;
@@ -88,3 +88,7 @@ primitive_highlight_type = 0xFFB58900;
 primitive_highlight_function = 0xFF1B8BD2;
 primitive_highlight_macro = 0xFFCB4B16;
 primitive_highlight_4coder_command = 0xFFFCFCFC;
+
+// avy
+internal_package_avy_background = 0xFF268BD2;
+internal_package_avy_text       = 0xFF00212B;

@@ -45,9 +45,10 @@ defcolor_text_cycle = {0xFF665B63, 0xFF998E96, 0xFFCCC1C9, 0xFFFFF4FC};
 defcolor_line_numbers_back = 0xFF1F2024;
 defcolor_line_numbers_text = 0xFF6E7899;
 
+// custom internal
+
 scope_highlight_line_cycle = { 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899, 0xFF6E7899 };
 scope_highlight_block_cycle = { 0x3ff048be, 0x3ff07a48, 0x3fbef048, 0x3f48f07a, 0x3f48bef0, 0x3f7a48f0 };
-
 
 internal_package__paint_functions = 0xFF7EBEBD;
 
@@ -55,3 +56,7 @@ primitive_highlight_type = 0xFFB0A2E7;
 primitive_highlight_function = 0xFF63BEBD;
 primitive_highlight_macro = 0xFF63BEBD;
 primitive_highlight_4coder_command = 0xFF63BEBD;
+
+// avy
+internal_package_avy_background = 0xFF268BD2;
+internal_package_avy_text       = 0xFF00212B;
